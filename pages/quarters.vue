@@ -1,13 +1,13 @@
 <template>
   <p>ATB 2019</p>
   <div
-    class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4"
+    class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4"
   >
     <div
       v-for="issue in atb2019"
-      class="relative flex flex-col rounded shadow-md divide-y h-fit"
+      class="flex flex-col rounded shadow-md divide-y h-fit bg-white"
     >
-      <div class="py-2 px-4">
+      <div class="py-2 px-4 bg-slate-200">
         <span class="font-semibold">{{ issue.reverse }}</span>
         <span class="text-sm font-light pl-1">{{ issue.state }}</span>
       </div>

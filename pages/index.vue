@@ -4,56 +4,25 @@
     class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4"
   >
     <div
-      v-for="x in 10"
-      class="relative flex flex-col rounded shadow-md divide-y h-fit"
+      v-for="shield in data"
+      class="flex flex-col rounded shadow-md divide-y h-fit bg-white"
     >
-      <div class="py-2 px-4">
-        <span class="font-semibold">{{ 2024 - x }}</span>
+      <div class="py-2 px-4 bg-slate-200">
+        <span class="font-semibold">{{ shield.date }}</span>
       </div>
       <ul class="flex flex-col divide-y h-fit">
         <li
-          v-for="strike in ['Avg', 'Unc', 'Pf']"
+          v-for="issue in shield.issues"
           class="flex justify-between py-2 px-4"
         >
-          {{ strike }}
+          {{ issue.strike }}
           <ul class="text-center flex gap-1">
             <li
-              v-if="strike != 'Pf'"
+              v-for="mint in issue.mints"
               class="border shadow rounded px-2 w-7 h-7"
+              :class="{ 'bg-emerald-400': mint.have }"
             >
-              <span class="text-sm">P</span>
-            </li>
-            <li
-              v-if="strike != 'Pf'"
-              class="border shadow rounded px-2 w-7 h-7"
-            >
-              <span class="text-sm">D</span>
-            </li>
-            <li
-              v-if="x == 5 && strike == 'Unc'"
-              class="border shadow rounded px-2 w-7 h-7"
-            >
-              <span class="text-sm">W</span>
-            </li>
-            <li
-              v-if="strike == 'Pf'"
-              class="border shadow rounded px-2 w-7 h-7"
-            >
-              <span class="text-sm">S</span>
-            </li>
-            <li
-              v-if="x == 5 && strike == 'Pf'"
-              class="border shadow rounded px-2 w-7 h-7"
-            >
-              <span class="text-sm">W</span>
-            </li>
-          </ul>
-        </li>
-        <li v-if="x == 5" class="flex justify-between py-2 px-4">
-          RevPf
-          <ul class="text-center flex gap-1">
-            <li class="border shadow rounded px-2 w-7 h-7">
-              <span class="text-sm">W</span>
+              <span class="text-sm">{{ mint.mark }}</span>
             </li>
           </ul>
         </li>
@@ -63,5 +32,5 @@
 </template>
 
 <script setup>
-const strikes = ["Avg", "Unc", "Pf"];
+const { data } = await useFetch("/api/cents/lincoln/shield");
 </script>
