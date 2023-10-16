@@ -1,5 +1,5 @@
 <template>
-  <p>Lincoln, Shield Reverse</p>
+  <p class="text-2xl my-8">Lincoln, Shield Reverse</p>
   <div
     class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4"
   >
