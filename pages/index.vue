@@ -1,10 +1,11 @@
 <script setup>
-const { data: cent } = await useFetch("/api/cents/lincoln");
+const { data: types } = await useFetch("/api/cents/lincoln");
 </script>
 
 <template>
   <div>
-    <div v-for="type in cent.types">
+    <h1>Lincoln Cents</h1>
+    <div v-for="type in types">
       <h2>{{ type.type }}</h2>
       <div
         class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4"
