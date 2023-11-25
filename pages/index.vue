@@ -12,15 +12,15 @@
     </hgroup>
   </div>
 
-  <main class="container mx-auto px-4 md:columns-2 space-y-4">
+  <main class="container mx-auto sm:px-4 md:columns-2 space-y-4">
     <article
       v-for="denom in coins"
-      class="border rounded-lg border-slate-400 break-inside-avoid-column bg-white"
+      class="border sm:rounded-lg break-inside-avoid-column bg-white"
     >
-      <h2 class="text-lg font-bold p-2 border-b border-slate-400">
+      <h2 class="text-lg font-bold px-6 py-2 border-b">
         {{ denom.denomination }}
       </h2>
-      <ol class="sm:columns-2 md:columns-1 lg:columns-2 p-2">
+      <ol class="sm:columns-2 md:columns-1 lg:columns-2 px-4 py-2">
         <li v-for="coin in denom.types" class="flex items-center py-1">
           <NuxtLink :to="coin.slug" class="contents">
             <img class="rounded-full w-16 h-16 bg-slate-300" />
