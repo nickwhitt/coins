@@ -1,5 +1,5 @@
 <template>
-  <!-- <Body class="bg-gray-50" /> -->
+  <Body class="bg-gray-100" />
 
   <div class="container mx-auto px-4">
     <hgroup class="py-8">
@@ -12,23 +12,28 @@
     </hgroup>
   </div>
 
-  <main class="container mx-auto px-4 lg:columns-2 space-y-4">
+  <main class="container mx-auto px-4 md:columns-2 space-y-4">
     <article
       v-for="denom in coins"
-      class="border rounded-lg border-slate-400 break-inside-avoid-column"
+      class="border rounded-lg border-slate-400 break-inside-avoid-column bg-white"
     >
       <h2 class="text-lg font-bold p-2 border-b border-slate-400">
         {{ denom.denomination }}
       </h2>
-      <ol class="sm:columns-2 p-2">
+      <ol class="sm:columns-2 md:columns-1 lg:columns-2 p-2">
         <li v-for="coin in denom.types" class="flex items-center py-1">
-          <img class="rounded-full w-16 h-16 bg-slate-300 mr-2" />
-          <div>
-            <p class="text-lg">
-              <a :href="coin.slug">{{ coin.type }}</a>
-            </p>
-            <p>{{ coin.dates }}</p>
-          </div>
+          <NuxtLink :to="coin.slug" class="contents">
+            <img class="rounded-full w-16 h-16 bg-slate-300" />
+            <img
+              class="hidden sm:flex lg:hidden xl:flex rounded-full w-16 h-16 bg-slate-300 ml-0.5"
+            />
+            <div class="ml-2">
+              <p class="text-lg">
+                {{ coin.type }}
+              </p>
+              <p>{{ coin.dates }}</p>
+            </div>
+          </NuxtLink>
         </li>
       </ol>
     </article>
@@ -57,7 +62,7 @@ const coins = [
       { type: "Braided Hair", dates: "1839-1857" },
       { type: "Flying Eagle", dates: "1856-1858" },
       { type: "Indian", dates: "1859-1909" },
-      { type: "Lincoln", dates: "since 1909", slug: "/cents/" },
+      { type: "Lincoln", dates: "since 1909", slug: "/cents" },
     ],
   },
   {
@@ -105,7 +110,7 @@ const coins = [
     ],
   },
   {
-    denomination: "Large Dollars",
+    denomination: "Dollars",
     types: [
       { type: "Flowing Hair", dates: "1794-1795" },
       { type: "Draped Bust", dates: "1795-1804" },
@@ -114,15 +119,10 @@ const coins = [
       { type: "Morgan", dates: "1878-1921" },
       { type: "Peace", dates: "1921-1935" },
       { type: "Eisenhower", dates: "1971-1978" },
-    ],
-  },
-  {
-    denomination: "Modern Dollars",
-    types: [
       { type: "Susan B. Anthony", dates: "1979-1999" },
       { type: "Sacagawea", dates: "since 2000" },
       { type: "Presidential", dates: "2007-2016, 2020" },
-      { type: "American Innovation", dates: "2018-2032" },
+      { type: "Innovation", dates: "2018-2032" },
     ],
   },
 ];
