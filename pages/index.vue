@@ -1,42 +1,129 @@
-<script setup>
-import { ChevronRightIcon } from "@heroicons/vue/24/outline";
-import { CheckCircleIcon } from "@heroicons/vue/20/solid";
-const { data: types } = await useFetch("/api/cents/lincoln");
-</script>
-
 <template>
-  <Body class="bg-gray-100" />
-  <main class="md:container mx-auto sm:px-4">
-    <hgroup class="py-8 px-4 sm:px-o">
-      <ol class="flex gap-2 text-sm items-center">
+  <!-- <Body class="bg-gray-50" /> -->
+
+  <div class="container mx-auto px-4">
+    <hgroup class="py-8">
+      <!-- <ol class="flex gap-2 text-sm items-center">
         <li>Federal Issues</li>
         <li><ChevronRightIcon class="w-4 h-4" /></li>
         <li>Small Cents</li>
-      </ol>
-      <h1 class="text-3xl font-bold tracking-tight">Lincoln Obverse</h1>
+      </ol> -->
+      <h1 class="text-3xl font-bold tracking-tight">Federal Issues</h1>
     </hgroup>
-    <article v-for="type in types" class="shadow mb-6 bg-white">
-      <hgroup class="px-6 py-5 border-b">
-        <h2 class="text-lg font-bold">{{ type.type }}</h2>
-        <p class="">{{ type.dates }}</p>
-      </hgroup>
-      <div
-        class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-4 px-6 py-5"
-      >
-        <figure v-for="issue in type.issues" class="flex flex-col items-center">
-          <div class="inline-block relative">
-            <img class="rounded-full w-[1.9cm] h-[1.9cm] bg-slate-300" />
-            <CheckCircleIcon
-              v-if="issue.have"
-              class="fill-emerald-500 absolute bottom-0 right-0 h-8 w-8"
-            />
+  </div>
+
+  <main class="container mx-auto px-4 lg:columns-2 space-y-4">
+    <article
+      v-for="denom in coins"
+      class="border rounded-lg border-slate-400 break-inside-avoid-column"
+    >
+      <h2 class="text-lg font-bold p-2 border-b border-slate-400">
+        {{ denom.denomination }}
+      </h2>
+      <ol class="sm:columns-2 p-2">
+        <li v-for="coin in denom.types" class="flex items-center py-1">
+          <img class="rounded-full w-16 h-16 bg-slate-300 mr-2" />
+          <div>
+            <p class="text-lg">
+              <a :href="coin.slug">{{ coin.type }}</a>
+            </p>
+            <p>{{ coin.dates }}</p>
           </div>
-          <figcaption class="text-center">
-            <p>{{ issue.issue }}</p>
-            <p class="font-light text-sm">{{ issue.variant }}</p>
-          </figcaption>
-        </figure>
-      </div>
+        </li>
+      </ol>
     </article>
   </main>
+
+  <footer class="p-4"></footer>
 </template>
+
+<script setup>
+const coins = [
+  {
+    denomination: "Half Cents",
+    types: [
+      { type: "Liberty Cap", dates: "1793-1797" },
+      { type: "Draped Bust", dates: "1800-1808" },
+      { type: "Classic Head", dates: "1809-1836" },
+      { type: "Braided Hair", dates: "1840-1857" },
+    ],
+  },
+  {
+    denomination: "Cents",
+    types: [
+      { type: "Draped Bust", dates: "1796-1807" },
+      { type: "Classic Head", dates: "1808-1814" },
+      { type: "Coronet Head", dates: "1816-1839" },
+      { type: "Braided Hair", dates: "1839-1857" },
+      { type: "Flying Eagle", dates: "1856-1858" },
+      { type: "Indian", dates: "1859-1909" },
+      { type: "Lincoln", dates: "since 1909", slug: "/cents/" },
+    ],
+  },
+  {
+    denomination: "Nickels",
+    types: [
+      { type: "Shield", dates: "1866-1883" },
+      { type: "Liberty", dates: "1883-1913" },
+      { type: "Buffalo", dates: "1913-1938" },
+      { type: "Jefferson", dates: "since 1938" },
+    ],
+  },
+  {
+    denomination: "Dimes",
+    types: [
+      { type: "Draped Bust", dates: "1796-1807" },
+      { type: "Capped Bust", dates: "1809-1837" },
+      { type: "Liberty Seated", dates: "1837-1891" },
+      { type: "Barber", dates: "1892-1916" },
+      { type: "Mercury", dates: "1916-1945" },
+      { type: "Roosevelt", dates: "since 1946" },
+    ],
+  },
+  {
+    denomination: "Quarters",
+    types: [
+      { type: "Draped Bust", dates: "1796-1807" },
+      { type: "Capped Bust", dates: "1815-1838" },
+      { type: "Liberty Seated", dates: "1838-1891" },
+      { type: "Barber", dates: "1892-1916" },
+      { type: "Standing Liberty", dates: "1916-1930" },
+      { type: "Washington", dates: "since 1932" },
+    ],
+  },
+  {
+    denomination: "Half Dollars",
+    types: [
+      { type: "Flowing Hair", dates: "1794-1795" },
+      { type: "Draped Bust", dates: "1796-1807" },
+      { type: "Capped Bust", dates: "1807-1839" },
+      { type: "Liberty Seated", dates: "1839-1891" },
+      { type: "Barber", dates: "1892-1915" },
+      { type: "Walking Liberty", dates: "1916-1947" },
+      { type: "Franklin", dates: "1948-1963" },
+      { type: "Kennedy", dates: "since 1964" },
+    ],
+  },
+  {
+    denomination: "Large Dollars",
+    types: [
+      { type: "Flowing Hair", dates: "1794-1795" },
+      { type: "Draped Bust", dates: "1795-1804" },
+      { type: "Liberty Seated", dates: "1836-1873" },
+      { type: "Trade", dates: "1873-1885" },
+      { type: "Morgan", dates: "1878-1921" },
+      { type: "Peace", dates: "1921-1935" },
+      { type: "Eisenhower", dates: "1971-1978" },
+    ],
+  },
+  {
+    denomination: "Modern Dollars",
+    types: [
+      { type: "Susan B. Anthony", dates: "1979-1999" },
+      { type: "Sacagawea", dates: "since 2000" },
+      { type: "Presidential", dates: "2007-2016, 2020" },
+      { type: "American Innovation", dates: "2018-2032" },
+    ],
+  },
+];
+</script>
