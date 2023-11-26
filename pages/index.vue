@@ -23,10 +23,17 @@
       <ol class="sm:columns-2 md:columns-1 lg:columns-2 px-4 py-2">
         <li v-for="coin in denom.types" class="flex items-center py-1">
           <NuxtLink :to="coin.slug" class="contents">
-            <img class="rounded-full w-16 h-16 bg-slate-300" />
-            <img
-              class="hidden sm:flex lg:hidden xl:flex rounded-full w-16 h-16 bg-slate-300 ml-0.5"
+            <NuxtImg
+              v-if="coin.obv"
+              class="rounded-full w-16 h-16"
+              :src="coin.obv"
+              placeholder
             />
+            <img v-else class="rounded-full w-16 h-16 bg-slate-300" />
+            <!-- <NuxtImg
+              class="hidden sm:flex lg:hidden xl:flex rounded-full w-16 h-16 bg-slate-300 ml-0.5"
+              :src="coin.rev"
+            /> -->
             <div class="ml-2">
               <p class="text-lg">
                 {{ coin.type }}
@@ -62,7 +69,13 @@ const coins = [
       { type: "Braided Hair", dates: "1839-1857" },
       { type: "Flying Eagle", dates: "1856-1858" },
       { type: "Indian", dates: "1859-1909" },
-      { type: "Lincoln", dates: "since 1909", slug: "/cents" },
+      {
+        type: "Lincoln",
+        dates: "since 1909",
+        slug: "/cents",
+        obv: "/img/lincoln-2023.jpg",
+        rev: "/img/lincoln-shield-reverse.jpg",
+      },
     ],
   },
   {
@@ -71,7 +84,12 @@ const coins = [
       { type: "Shield", dates: "1866-1883" },
       { type: "Liberty", dates: "1883-1913" },
       { type: "Buffalo", dates: "1913-1938" },
-      { type: "Jefferson", dates: "since 1938" },
+      {
+        type: "Jefferson",
+        dates: "since 1938",
+        obv: "/img/jefferson-2023p.jpg",
+        rev: "/img/jefferson-reverse.jpg",
+      },
     ],
   },
   {
@@ -82,7 +100,12 @@ const coins = [
       { type: "Liberty Seated", dates: "1837-1891" },
       { type: "Barber", dates: "1892-1916" },
       { type: "Mercury", dates: "1916-1945" },
-      { type: "Roosevelt", dates: "since 1946" },
+      {
+        type: "Roosevelt",
+        dates: "since 1946",
+        obv: "/img/roosevelt-2023p.jpg",
+        rev: "/img/roosevelt-reverse.jpg",
+      },
     ],
   },
   {
@@ -93,7 +116,11 @@ const coins = [
       { type: "Liberty Seated", dates: "1838-1891" },
       { type: "Barber", dates: "1892-1916" },
       { type: "Standing Liberty", dates: "1916-1930" },
-      { type: "Washington", dates: "since 1932" },
+      {
+        type: "Washington",
+        dates: "since 1932",
+        obv: "/img/washington-2021p-crossing-delaware.jpg",
+      },
     ],
   },
   {
@@ -106,7 +133,12 @@ const coins = [
       { type: "Barber", dates: "1892-1915" },
       { type: "Walking Liberty", dates: "1916-1947" },
       { type: "Franklin", dates: "1948-1963" },
-      { type: "Kennedy", dates: "since 1964" },
+      {
+        type: "Kennedy",
+        dates: "since 1964",
+        obv: "/img/kennedy-2023p.jpg",
+        rev: "/img/kennedy-reverse.jpg",
+      },
     ],
   },
   {
@@ -120,9 +152,24 @@ const coins = [
       { type: "Peace", dates: "1921-1935" },
       { type: "Eisenhower", dates: "1971-1978" },
       { type: "Susan B. Anthony", dates: "1979-1999" },
-      { type: "Sacagawea", dates: "since 2000" },
-      { type: "Presidential", dates: "2007-2016, 2020" },
-      { type: "Innovation", dates: "2018-2032" },
+      {
+        type: "Sacagawea",
+        dates: "since 2000",
+        obv: "/img/sacagawea-2000p.jpg",
+        rev: "/img/sacagawea-reverse.jpg",
+      },
+      {
+        type: "Presidential",
+        dates: "2007-2016, 2020",
+        obv: "/img/presidential-dollar-washington.jpg",
+        rev: "/img/presidential-dollar-reverse.jpg",
+      },
+      {
+        type: "Innovation",
+        dates: "2018-2032",
+        obv: "/img/innovation-dollar-obverse.jpg",
+        rev: "/img/innovation-dollar-reverse.jpg",
+      },
     ],
   },
 ];

@@ -25,10 +25,13 @@ const { data: types } = await useFetch("/api/cents/lincoln");
       >
         <figure v-for="issue in type.issues" class="flex flex-col items-center">
           <div class="inline-block relative">
-            <img class="rounded-full w-[1.9cm] h-[1.9cm] bg-slate-300" />
+            <img
+              class="rounded-full w-[1.9cm] h-[1.9cm] bg-slate-300"
+              :src="issue.rev || type.rev"
+            />
             <CheckCircleIcon
               v-if="issue.have"
-              class="fill-emerald-500 absolute bottom-0 right-0 h-8 w-8"
+              class="fill-emerald-700 absolute bottom-0 right-0 h-8 w-8"
             />
           </div>
           <figcaption class="text-center">
