@@ -25,15 +25,12 @@
           <NuxtLink :to="coin.slug" class="contents">
             <NuxtImg
               v-if="coin.obv"
-              class="rounded-full w-16 h-16"
               :src="coin.obv"
               placeholder
+              width="80px"
+              height="80px"
             />
-            <img v-else class="rounded-full w-16 h-16 bg-slate-300" />
-            <!-- <NuxtImg
-              class="hidden sm:flex lg:hidden xl:flex rounded-full w-16 h-16 bg-slate-300 ml-0.5"
-              :src="coin.rev"
-            /> -->
+            <img v-else class="rounded-full w-20 h-20 bg-slate-300" />
             <div class="ml-2">
               <p class="text-lg">
                 {{ coin.type }}

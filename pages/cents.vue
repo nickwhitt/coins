@@ -25,9 +25,11 @@ const { data: types } = await useFetch("/api/cents/lincoln");
       >
         <figure v-for="issue in type.issues" class="flex flex-col items-center">
           <div class="inline-block relative">
-            <img
-              class="rounded-full w-[1.9cm] h-[1.9cm] bg-slate-300"
+            <NuxtImg
               :src="issue.rev || type.rev"
+              placeholder
+              width="80px"
+              height="80px"
             />
             <CheckCircleIcon
               v-if="issue.have"
