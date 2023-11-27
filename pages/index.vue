@@ -55,8 +55,6 @@ const coins = [
       { type: "Braided Hair", dates: "1840-1857" },
     ],
   },
-  { denomination: "Two-Cents", types: [] },
-  { denomination: "Three-Cents", types: [] },
   {
     denomination: "Cents",
     types: [
@@ -75,11 +73,31 @@ const coins = [
     ],
   },
   {
-    denomination: "Nickel Five-Cents",
+    denomination: "Two and Three Cents",
     types: [
-      { type: "Shield", dates: "1866-1883" },
-      { type: "Liberty", dates: "1883-1913" },
-      { type: "Buffalo", dates: "1913-1938" },
+      { type: "Two Cent", dates: "1864-1873" },
+      { type: "Three Cent Silver", dates: "1851-1873" },
+      { type: "Three Cent Nickel", dates: "1865-1889" },
+    ],
+  },
+  {
+    denomination: "Nickel Five Cents",
+    types: [
+      {
+        type: "Shield",
+        dates: "1866-1883",
+        obv: "/img/nickel-shield-1883.webp",
+      },
+      {
+        type: "Liberty",
+        dates: "1883-1913",
+        obv: "/img/nickel-liberty-1883.webp",
+      },
+      {
+        type: "Buffalo",
+        dates: "1913-1938",
+        obv: "/img/nickel-buffalo-1913.webp",
+      },
       {
         type: "Jefferson",
         dates: "since 1938",
@@ -87,7 +105,16 @@ const coins = [
       },
     ],
   },
-  { denomination: "Half Dimes", types: [] },
+  {
+    denomination: "Half Dimes",
+    types: [
+      { type: "Bust", dates: "1792" },
+      { type: "Flowing Hair", dates: "1794-1795" },
+      { type: "Draped Bust", dates: "1796-1805" },
+      { type: "Capped Bust", dates: "1829-1837" },
+      { type: "Liberty Seated", dates: "1837-1873" },
+    ],
+  },
   {
     denomination: "Dimes",
     types: [
@@ -103,7 +130,10 @@ const coins = [
       },
     ],
   },
-  { denomination: "Twenty-Cents", types: [] },
+  {
+    denomination: "Twenty Cents",
+    types: [{ type: "Twenty Cent", dates: "1875-1878" }],
+  },
   {
     denomination: "Quarter Dollars",
     types: [
@@ -162,6 +192,49 @@ const coins = [
         dates: "2018-2032",
         obv: "/img/innovation-dollar-obverse.webp",
       },
+    ],
+  },
+  {
+    denomination: "Gold Dollars",
+    types: [
+      { type: "One Dollar", dates: "1849-1889" },
+      { type: "Three Dollar", dates: "1854-1889" },
+      { type: "Stella", dates: "1879-1880" },
+    ],
+  },
+  {
+    denomination: "Quarter Eagles",
+    types: [
+      { type: "Draped Bust", dates: "1796-1807" },
+      { type: "Capped Bust", dates: "1808-1834" },
+      { type: "Classic Head", dates: "1834-1839" },
+      { type: "Liberty Head", dates: "1840-1907" },
+      { type: "Indian", dates: "1908-1929" },
+    ],
+  },
+  {
+    denomination: "Half Eagles",
+    types: [
+      { type: "Draped Bust", dates: "1795-1807" },
+      { type: "Capped Bust", dates: "1807-1834" },
+      { type: "Classic Head", dates: "1834-1838" },
+      { type: "Liberty Head", dates: "1839-1908" },
+      { type: "Indian", dates: "1908-1929" },
+    ],
+  },
+  {
+    denomination: "Eagles",
+    types: [
+      { type: "Draped Bust", dates: "1795-1804" },
+      { type: "Liberty Head", dates: "1838-1907" },
+      { type: "Indian", dates: "1907-1933" },
+    ],
+  },
+  {
+    denomination: "Double Eagles",
+    types: [
+      { type: "Liberty Head", dates: "1849-1907" },
+      { type: "St. Gaudens", dates: "1907-1933" },
     ],
   },
 ];
