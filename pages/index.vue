@@ -3,41 +3,39 @@
 
   <div class="container mx-auto px-4">
     <hgroup class="py-8">
-      <!-- <ol class="flex gap-2 text-sm items-center">
-        <li>Federal Issues</li>
-        <li><ChevronRightIcon class="w-4 h-4" /></li>
-        <li>Small Cents</li>
-      </ol> -->
       <h1 class="text-3xl font-bold tracking-tight">Federal Issues</h1>
     </hgroup>
   </div>
 
-  <main class="container mx-auto sm:px-4 md:columns-2 space-y-4">
+  <main class="container mx-auto sm:px-4 lg:columns-2 space-y-4">
     <article
-      v-for="denom in coins"
+      v-for="series in coins"
       class="border sm:rounded-lg break-inside-avoid-column bg-white"
     >
       <h2 class="text-lg font-bold px-6 py-2 border-b">
-        {{ denom.denomination }}
+        {{ series.denomination }}
       </h2>
-      <ol class="sm:columns-2 md:columns-1 lg:columns-2 px-4 py-2">
-        <li v-for="coin in denom.types" class="flex items-center py-1">
-          <NuxtLink :to="coin.slug" class="contents">
-            <NuxtImg
-              v-if="coin.obv"
-              :src="coin.obv"
-              placeholder
-              width="80px"
-              height="80px"
-            />
-            <img v-else class="rounded-full w-20 h-20 bg-slate-300" />
-            <div class="ml-2">
-              <p class="text-lg">
-                {{ coin.type }}
-              </p>
-              <p>{{ coin.dates }}</p>
-            </div>
-          </NuxtLink>
+      <ol class="grid sm:grid-cols-2 gap-2 px-4 py-2">
+        <li v-for="coin in series.types">
+          <figure class="flex items-center">
+            <NuxtLink :to="coin.slug" class="contents">
+              <NuxtImg
+                v-if="coin.obv"
+                :src="coin.obv"
+                placeholder
+                loading="lazy"
+                width="80px"
+                height="80px"
+              />
+              <img v-else class="rounded-full w-20 h-20 bg-slate-300" />
+              <figcaption class="ml-2">
+                <p class="text-lg">
+                  {{ coin.type }}
+                </p>
+                <p>{{ coin.dates }}</p>
+              </figcaption>
+            </NuxtLink>
+          </figure>
         </li>
       </ol>
     </article>
@@ -57,6 +55,8 @@ const coins = [
       { type: "Braided Hair", dates: "1840-1857" },
     ],
   },
+  { denomination: "Two-Cents", types: [] },
+  { denomination: "Three-Cents", types: [] },
   {
     denomination: "Cents",
     types: [
@@ -70,13 +70,12 @@ const coins = [
         type: "Lincoln",
         dates: "since 1909",
         slug: "/cents",
-        obv: "/img/lincoln-2023.jpg",
-        rev: "/img/lincoln-shield-reverse.jpg",
+        obv: "/img/lincoln-2023.webp",
       },
     ],
   },
   {
-    denomination: "Nickels",
+    denomination: "Nickel Five-Cents",
     types: [
       { type: "Shield", dates: "1866-1883" },
       { type: "Liberty", dates: "1883-1913" },
@@ -84,11 +83,11 @@ const coins = [
       {
         type: "Jefferson",
         dates: "since 1938",
-        obv: "/img/jefferson-2023p.jpg",
-        rev: "/img/jefferson-reverse.jpg",
+        obv: "/img/jefferson-2023p.webp",
       },
     ],
   },
+  { denomination: "Half Dimes", types: [] },
   {
     denomination: "Dimes",
     types: [
@@ -100,13 +99,13 @@ const coins = [
       {
         type: "Roosevelt",
         dates: "since 1946",
-        obv: "/img/roosevelt-2023p.jpg",
-        rev: "/img/roosevelt-reverse.jpg",
+        obv: "/img/roosevelt-2023p.webp",
       },
     ],
   },
+  { denomination: "Twenty-Cents", types: [] },
   {
-    denomination: "Quarters",
+    denomination: "Quarter Dollars",
     types: [
       { type: "Draped Bust", dates: "1796-1807" },
       { type: "Capped Bust", dates: "1815-1838" },
@@ -116,7 +115,7 @@ const coins = [
       {
         type: "Washington",
         dates: "since 1932",
-        obv: "/img/washington-2021p-crossing-delaware.jpg",
+        obv: "/img/washington-2021p.webp",
       },
     ],
   },
@@ -133,8 +132,7 @@ const coins = [
       {
         type: "Kennedy",
         dates: "since 1964",
-        obv: "/img/kennedy-2023p.jpg",
-        rev: "/img/kennedy-reverse.jpg",
+        obv: "/img/kennedy-2023p.webp",
       },
     ],
   },
@@ -152,20 +150,17 @@ const coins = [
       {
         type: "Sacagawea",
         dates: "since 2000",
-        obv: "/img/sacagawea-2000p.jpg",
-        rev: "/img/sacagawea-reverse.jpg",
+        obv: "/img/sacagawea-2000p.webp",
       },
       {
         type: "Presidential",
         dates: "2007-2016, 2020",
-        obv: "/img/presidential-dollar-washington.jpg",
-        rev: "/img/presidential-dollar-reverse.jpg",
+        obv: "/img/presidential-dollar-reverse.webp",
       },
       {
         type: "Innovation",
         dates: "2018-2032",
-        obv: "/img/innovation-dollar-obverse.jpg",
-        rev: "/img/innovation-dollar-reverse.jpg",
+        obv: "/img/innovation-dollar-obverse.webp",
       },
     ],
   },

@@ -18,7 +18,7 @@ const { data: types } = await useFetch("/api/cents/lincoln");
     <article v-for="type in types" class="shadow mb-6 bg-white">
       <hgroup class="px-6 py-5 border-b">
         <h2 class="text-lg font-bold">{{ type.type }}</h2>
-        <p class="">{{ type.dates }}</p>
+        <p>{{ type.dates }}</p>
       </hgroup>
       <div
         class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-4 px-6 py-5"
@@ -28,6 +28,7 @@ const { data: types } = await useFetch("/api/cents/lincoln");
             <NuxtImg
               :src="issue.rev || type.rev"
               placeholder
+              loading="lazy"
               width="80px"
               height="80px"
             />
