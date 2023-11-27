@@ -102,6 +102,7 @@ const coins = [
         type: "Jefferson",
         dates: "since 1938",
         obv: "/img/jefferson-2023p.webp",
+        slug: "/nickels",
       },
     ],
   },
