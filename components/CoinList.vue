@@ -4,8 +4,8 @@
       <ul class="flex justify-between items-center">
         <li class="font-bold">Issue</li>
         <li>
-          <ul class="flex font-bold text-center">
-            <li v-for="grade in grades" class="capitalize w-10">
+          <ul class="flex font-bold text-sm text-center">
+            <li v-for="grade in grades" class="w-9">
               {{ grade }}
             </li>
           </ul>
@@ -17,10 +17,10 @@
         <li>{{ row.issue }}</li>
         <li>
           <ul class="flex">
-            <li v-for="grade in grades" class="w-10">
+            <li v-for="grade in grades" class="w-9">
               <img
                 v-if="row[grade]"
-                class="rounded-full w-4 h-4 bg-green-500 mx-auto"
+                class="rounded-full w-5 h-5 bg-green-500 mx-auto"
               />
             </li>
           </ul>
@@ -32,5 +32,5 @@
 
 <script setup>
 const props = defineProps(["rows"]);
-const grades = ["cir", "unc", "pf"];
+const grades = ["VF", "EF", "AU", "Unc", "Gem"];
 </script>
