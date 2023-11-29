@@ -3,7 +3,13 @@
 
   <div class="container mx-auto px-4">
     <hgroup class="py-8">
+      <ol class="flex gap-2 text-sm items-center">
+        <li><NuxtLink to="/">Federal Issues</NuxtLink></li>
+        <li><ChevronRightIcon class="w-4 h-4" /></li>
+        <li>Nickels</li>
+      </ol>
       <h1 class="text-3xl font-bold tracking-tight">Jefferson Nickels</h1>
+      <p>Since 1938</p>
     </hgroup>
   </div>
 
@@ -18,10 +24,14 @@
             <NuxtImg
               class="rounded-full w-24 h-24"
               src="/img/jefferson-2023p.webp"
+              placeholder
+              loading="lazy"
             />
             <NuxtImg
               class="rounded-full w-24 h-24"
               src="/img/jefferson-modified-reverse.webp"
+              placeholder
+              loading="lazy"
             />
           </div>
           <figcaption class="text-sm font-thin text-center">
@@ -32,6 +42,8 @@
           <NuxtImg
             class="rounded-full w-24 h-24"
             src="/img/jefferson-2023s.webp"
+            placeholder
+            loading="lazy"
           />
           <figcaption class="text-sm font-thin text-center">
             Proof strike
@@ -51,6 +63,8 @@
           <NuxtImg
             class="rounded-full w-24 h-24"
             src="/img/jefferson-2005p.webp"
+            placeholder
+            loading="lazy"
           />
           <figcaption class="text-sm font-thin text-center">
             2005 Obverse
@@ -60,6 +74,8 @@
           <NuxtImg
             class="rounded-full w-24 h-24"
             src="/img/jefferson-bison.webp"
+            placeholder
+            loading="lazy"
           />
           <figcaption class="text-sm font-thin text-center">
             American Bison
@@ -69,6 +85,8 @@
           <NuxtImg
             class="rounded-full w-24 h-24"
             src="/img/jefferson-ocean.webp"
+            placeholder
+            loading="lazy"
           />
           <figcaption class="text-sm font-thin text-center">
             Ocean In View
@@ -81,6 +99,8 @@
           <NuxtImg
             class="rounded-full w-24 h-24"
             src="/img/jefferson-2004p.webp"
+            placeholder
+            loading="lazy"
           />
           <figcaption class="text-sm font-thin text-center">
             2004 Obverse
@@ -90,6 +110,8 @@
           <NuxtImg
             class="rounded-full w-24 h-24"
             src="/img/jefferson-la-purchase.webp"
+            placeholder
+            loading="lazy"
           />
           <figcaption class="text-sm font-thin text-center">
             Peace Medal
@@ -99,6 +121,8 @@
           <NuxtImg
             class="rounded-full w-24 h-24"
             src="/img/jefferson-keelboat.webp"
+            placeholder
+            loading="lazy"
           />
           <figcaption class="text-sm font-thin text-center">
             Keelboat
@@ -119,14 +143,20 @@
             <NuxtImg
               src="/img/jefferson-1944p-reverse.webp"
               class="rounded-full w-24 h-24"
+              placeholder
+              loading="lazy"
             />
             <NuxtImg
               src="/img/jefferson-1943d-reverse.webp"
               class="rounded-full w-24 h-24"
+              placeholder
+              loading="lazy"
             />
             <NuxtImg
               src="/img/jefferson-1942s-reverse.webp"
               class="rounded-full w-24 h-24"
+              placeholder
+              loading="lazy"
             />
           </div>
           <figcaption class="text-sm font-thin text-center">
@@ -148,10 +178,14 @@
             <NuxtImg
               src="/img/jefferson-1940d.webp"
               class="rounded-full w-24 h-24"
+              placeholder
+              loading="lazy"
             />
             <NuxtImg
               src="/img/jefferson-monticello-reverse.webp"
               class="rounded-full w-24 h-24"
+              placeholder
+              loading="lazy"
             />
           </div>
           <figcaption class="text-sm font-thin text-center">
@@ -162,6 +196,8 @@
           <NuxtImg
             class="rounded-full w-24 h-24"
             src="/img/jefferson-1968s.webp"
+            placeholder
+            loading="lazy"
           />
           <figcaption class="text-sm font-thin text-center">
             Proof strike
@@ -177,6 +213,7 @@
 </template>
 
 <script setup>
+import { ChevronRightIcon } from "@heroicons/vue/24/outline";
 const monticello = [
   { issue: "2003-P", VF: true },
   { issue: "2003-D", VF: true },
