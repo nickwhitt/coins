@@ -13,7 +13,7 @@
     </hgroup>
   </div>
 
-  <main class="container mx-auto sm:px-4 lg:columns-2 space-y-4">
+  <main class="container mx-auto sm:px-4 space-y-4">
     <Card>
       <template #header>Clad Coinage and Silver Proofs</template>
       <template #subheader>1965 to Date</template>
@@ -51,7 +51,17 @@
         </figure>
       </div>
 
-      <CoinList :rows="clad" />
+      <div class="grid lg:grid-cols-2 gap-4">
+        <CoinList :rows="clad" class="lg:hidden" />
+        <CoinList
+          :rows="clad.slice(0, Math.floor(clad.length / 2))"
+          class="hidden lg:grid"
+        />
+        <CoinList
+          :rows="clad.slice(Math.floor(clad.length / 2), clad.length)"
+          class="hidden lg:grid"
+        />
+      </div>
     </Card>
 
     <Card>
@@ -91,9 +101,21 @@
         </figure>
       </div>
 
-      <CoinList :rows="silver" />
+      <div class="grid lg:grid-cols-2 gap-4">
+        <CoinList :rows="silver" class="lg:hidden" />
+        <CoinList
+          :rows="silver.slice(0, Math.floor(silver.length / 2))"
+          class="hidden lg:grid"
+        />
+        <CoinList
+          :rows="silver.slice(Math.floor(silver.length / 2), silver.length)"
+          class="hidden lg:grid"
+        />
+      </div>
     </Card>
   </main>
+
+  <footer class="p-4"></footer>
 </template>
 
 <script setup>

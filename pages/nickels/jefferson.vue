@@ -13,10 +13,10 @@
     </hgroup>
   </div>
 
-  <main class="container mx-auto sm:px-4 lg:columns-2 space-y-4">
+  <main class="container mx-auto sm:px-4 space-y-4">
     <Card>
       <template #header>Jefferson, Modified</template>
-      <template #subheader>since 2006</template>
+      <template #subheader>Since 2006</template>
 
       <div class="flex gap-4 py-2 justify-center">
         <figure>
@@ -51,86 +51,112 @@
         </figure>
       </div>
 
-      <CoinList :rows="modified" />
+      <div class="grid lg:grid-cols-2 gap-4">
+        <CoinList :rows="modified" class="lg:hidden" />
+        <CoinList
+          :rows="modified.slice(0, Math.floor(modified.length / 2))"
+          class="hidden lg:grid"
+        />
+        <CoinList
+          :rows="
+            modified.slice(Math.floor(modified.length / 2), modified.length)
+          "
+          class="hidden lg:grid"
+        />
+      </div>
     </Card>
 
     <Card>
       <template #header>Westward Journey</template>
       <template #subheader>2004-2005</template>
 
-      <div class="flex gap-4 py-2 justify-center">
-        <figure>
-          <NuxtImg
-            class="rounded-full w-24 h-24"
-            src="/img/jefferson-2005p.webp"
-            placeholder
-            loading="lazy"
-          />
-          <figcaption class="text-sm font-thin text-center">
-            2005 Obverse
-          </figcaption>
-        </figure>
-        <figure>
-          <NuxtImg
-            class="rounded-full w-24 h-24"
-            src="/img/jefferson-bison.webp"
-            placeholder
-            loading="lazy"
-          />
-          <figcaption class="text-sm font-thin text-center">
-            American Bison
-          </figcaption>
-        </figure>
-        <figure>
-          <NuxtImg
-            class="rounded-full w-24 h-24"
-            src="/img/jefferson-ocean.webp"
-            placeholder
-            loading="lazy"
-          />
-          <figcaption class="text-sm font-thin text-center">
-            Ocean In View
-          </figcaption>
-        </figure>
+      <div class="grid lg:grid-cols-2 gap-4">
+        <div class="flex justify-center lg:justify-end gap-2 py-2">
+          <figure>
+            <NuxtImg
+              class="rounded-full w-24 h-24"
+              src="/img/jefferson-2005p.webp"
+              placeholder
+              loading="lazy"
+            />
+            <figcaption class="text-sm font-thin text-center">
+              2005 Obverse
+            </figcaption>
+          </figure>
+          <figure>
+            <NuxtImg
+              class="rounded-full w-24 h-24"
+              src="/img/jefferson-bison.webp"
+              placeholder
+              loading="lazy"
+            />
+            <figcaption class="text-sm font-thin text-center">
+              American Bison
+            </figcaption>
+          </figure>
+          <figure>
+            <NuxtImg
+              class="rounded-full w-24 h-24"
+              src="/img/jefferson-ocean.webp"
+              placeholder
+              loading="lazy"
+            />
+            <figcaption class="text-sm font-thin text-center">
+              Ocean In View
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="flex justify-center lg:justify-start gap-2 py-2">
+          <figure>
+            <NuxtImg
+              class="rounded-full w-24 h-24"
+              src="/img/jefferson-2004p.webp"
+              placeholder
+              loading="lazy"
+            />
+            <figcaption class="text-sm font-thin text-center">
+              2004 Obverse
+            </figcaption>
+          </figure>
+          <figure>
+            <NuxtImg
+              class="rounded-full w-24 h-24"
+              src="/img/jefferson-la-purchase.webp"
+              placeholder
+              loading="lazy"
+            />
+            <figcaption class="text-sm font-thin text-center">
+              Peace Medal
+            </figcaption>
+          </figure>
+          <figure>
+            <NuxtImg
+              class="rounded-full w-24 h-24"
+              src="/img/jefferson-keelboat.webp"
+              placeholder
+              loading="lazy"
+            />
+            <figcaption class="text-sm font-thin text-center">
+              Keelboat
+            </figcaption>
+          </figure>
+        </div>
       </div>
 
-      <div class="flex gap-4 py-2 justify-center">
-        <figure>
-          <NuxtImg
-            class="rounded-full w-24 h-24"
-            src="/img/jefferson-2004p.webp"
-            placeholder
-            loading="lazy"
-          />
-          <figcaption class="text-sm font-thin text-center">
-            2004 Obverse
-          </figcaption>
-        </figure>
-        <figure>
-          <NuxtImg
-            class="rounded-full w-24 h-24"
-            src="/img/jefferson-la-purchase.webp"
-            placeholder
-            loading="lazy"
-          />
-          <figcaption class="text-sm font-thin text-center">
-            Peace Medal
-          </figcaption>
-        </figure>
-        <figure>
-          <NuxtImg
-            class="rounded-full w-24 h-24"
-            src="/img/jefferson-keelboat.webp"
-            placeholder
-            loading="lazy"
-          />
-          <figcaption class="text-sm font-thin text-center">
-            Keelboat
-          </figcaption>
-        </figure>
+      <div class="grid lg:grid-cols-2 gap-4">
+        <CoinList :rows="westward" class="lg:hidden" />
+        <CoinList
+          :rows="westward.slice(0, Math.floor(westward.length / 2))"
+          class="hidden lg:grid"
+        />
+        <CoinList
+          :rows="
+            westward.slice(Math.floor(westward.length / 2), westward.length)
+          "
+          class="hidden lg:grid"
+        />
       </div>
-
-      <CoinList :rows="westward" />
     </Card>
 
     <Card>
@@ -165,7 +191,17 @@
         </figure>
       </div>
 
-      <CoinList :rows="wartime" />
+      <div class="grid lg:grid-cols-2 gap-4">
+        <CoinList :rows="wartime" class="lg:hidden" />
+        <CoinList
+          :rows="wartime.slice(0, Math.floor(wartime.length / 2))"
+          class="hidden lg:grid"
+        />
+        <CoinList
+          :rows="wartime.slice(Math.floor(wartime.length / 2), wartime.length)"
+          class="hidden lg:grid"
+        />
+      </div>
     </Card>
 
     <Card>
@@ -205,7 +241,22 @@
         </figure>
       </div>
 
-      <CoinList :rows="monticello" />
+      <div class="grid lg:grid-cols-2 gap-4">
+        <CoinList :rows="monticello" class="lg:hidden" />
+        <CoinList
+          :rows="monticello.slice(0, Math.floor(monticello.length / 2))"
+          class="hidden lg:grid"
+        />
+        <CoinList
+          :rows="
+            monticello.slice(
+              Math.floor(monticello.length / 2),
+              monticello.length
+            )
+          "
+          class="hidden lg:grid"
+        />
+      </div>
     </Card>
   </main>
 
